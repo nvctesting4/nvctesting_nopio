@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Original meta description." />
+  <title>Original Title</title>
+</head>
+<body>
+  <h1>Update Title and Meta Description</h1>
+  <button onclick="updatePage()">Update Page Info</button>
+
+  <script>
+    function updatePage() {
+      // Change the page title
+      document.title = "New Title Set by JavaScript";
+
+      // Change the meta description
+      let meta = document.querySelector("meta[name='description']");
+      if (meta) {
+        meta.setAttribute("content", "This is the new meta description set by JavaScript.");
+      }
+
+      alert("Title and meta description updated!");
+    }
+  </script>
+</body>
+</html>
