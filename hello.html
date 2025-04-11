@@ -3,26 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Original meta description." />
-  <title>Original Title</title>
+  <meta name="description" content="This page uses JavaScript to overwrite the title and patch content." />
+  <title>Old Title</title>
 </head>
 <body>
-  <h1>Update Title and Meta Description</h1>
-  <button onclick="updatePage()">Update Page Info</button>
+  <h1 id="main-heading">Original Heading</h1>
+  <p id="description">This is the original paragraph text.</p>
 
   <script>
-    function updatePage() {
-      // Change the page title
-      document.title = "New Title Set by JavaScript";
+    // Overwrite the page title
+    document.title = "New Title by JavaScript";
 
-      // Change the meta description
-      let meta = document.querySelector("meta[name='description']");
-      if (meta) {
-        meta.setAttribute("content", "This is the new meta description set by JavaScript.");
-      }
-
-      alert("Title and meta description updated!");
-    }
+    // Patch content dynamically
+    document.getElementById("main-heading").textContent = "Updated Heading by JS";
+    document.getElementById("description").textContent = "This paragraph was updated by JavaScript.";
   </script>
 </body>
 </html>
