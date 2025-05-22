@@ -68,5 +68,21 @@
     
   </div>
 
+  <!-- Ahrefs -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (e) {
+        if (window.AhrefsAnalytics != null) {
+          e.preventDefault(); // Stop form from submitting immediately
+          window.AhrefsAnalytics.sendEvent('sendMessageSubmitted');
+          setTimeout(() => contactForm.submit(), 100); // Submit after 100ms
+        }
+      });
+    }
+  });
+</script>
+  
 </body>
 </html>
