@@ -35,4 +35,26 @@
     <a href="about.html" class="button">Learn More About Us</a>
 
 
+    <button id="btnPage1">Show Page 1</button>
+  <button id="btnPage2">Show Page 2</button>
+
+  <div id="page1" class="page">
+    <h2>This is Page 1</h2>
+  </div>
+
+  <div id="page2" class="page">
+    <h2>This is Page 2</h2>
+  </div>
+
+
+ <script>
+        document.getElementById('btnPage1').addEventListener('click', function() {
+            if (window.AhrefsAnalytics != null) {
+                console.log(window.AhrefsAnalytics)
+                window.AhrefsAnalytics.sendEvent('showpage1');
+            }
+        });
+    </script>
+
+
 </body></html> 
