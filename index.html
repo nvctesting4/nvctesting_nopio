@@ -36,7 +36,18 @@
 
 
     <button id="btnPage1">Show Page 1</button>
-  <button id="btnPage2">Show Page 2</button>
+
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.getElementById('mainBtn');
+
+      btn.addEventListener('click', () => {
+        if (window.AhrefsAnalytics) {
+          window.AhrefsAnalytics.sendEvent('main_page_button_click');
+        }
+      });
+    });
+  </script>
 
  <script>
         document.getElementById('btnPage1').addEventListener('click', function() {
@@ -45,7 +56,5 @@
                 window.AhrefsAnalytics.sendEvent('showpage1index');
             }
         });
-    </script>
-
-
+</script>
 </body></html> 
