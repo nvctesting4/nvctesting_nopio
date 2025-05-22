@@ -25,6 +25,7 @@
  <script>
         document.getElementById('btnPage1').addEventListener('click', function() {
             if (window.AhrefsAnalytics != null) {
+                console.log(window.AhrefsAnalytics)
                 window.AhrefsAnalytics.sendEvent('showpage1');
             }
         });
