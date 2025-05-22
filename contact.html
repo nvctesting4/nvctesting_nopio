@@ -73,22 +73,25 @@
       <label for="message">Message</label>
       <textarea id="message" name="message" rows="5" required></textarea>
 
-      <button type="submit">Send Message</button>
+      <!-- <button type="submit">Send Message</button> -->
+
+      <button type="submit" id="sendMessageBtn">Send Message</button>
+
     </form>
   </div>
 
   <!-- Ahrefs Custom Event Script -->
    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const contactBtn = document.getElementById('contactOpenBtn');
-      if (contactBtn) {
-        contactBtn.addEventListener('click', function () {
-          if (window.AhrefsAnalytics != null) {
-            window.AhrefsAnalytics.sendEvent('contactFormOpened');
-          }
-        });
-      }
-    });
-  </script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const sendBtn = document.getElementById('sendMessageBtn');
+    if (sendBtn) {
+      sendBtn.addEventListener('click', function () {
+        if (window.AhrefsAnalytics != null) {
+          window.AhrefsAnalytics.sendEvent('sendMessageClicked');
+        }
+      });
+    }
+  });
+</script>
 </body>
 </html>
