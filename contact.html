@@ -77,5 +77,18 @@
     </form>
   </div>
 
+  <!-- Ahrefs Custom Event Script -->
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const contactBtn = document.getElementById('contactOpenBtn');
+      if (contactBtn) {
+        contactBtn.addEventListener('click', function () {
+          if (window.AhrefsAnalytics != null) {
+            window.AhrefsAnalytics.sendEvent('contactFormOpened');
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
