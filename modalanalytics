@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Example Page</title>
+</head>
+<body>
+
+  <button id="openModalBtn">Open Modal</button>
+
+  <!-- Your tracking script goes here -->
+  <script>
+    document.getElementById('openModalBtn').addEventListener('click', function () {
+      if (window.AhrefsAnalytics != null) {
+        window.AhrefsAnalytics.sendEvent('modalOpened');
+      }
+    });
+  </script>
+</body>
+</html>
