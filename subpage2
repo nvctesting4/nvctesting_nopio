@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subpage 2</title>
+</head>
+<body>
+  <h1>Subpage</h1>
+  <button id="subBtn">Trigger Subpage Event</button>
+  <br><br>
+  <a href="index.html">Back to Main Page</a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.getElementById('subBtn');
+
+      btn.addEventListener('click', () => {
+        if (window.AhrefsAnalytics) {
+          window.AhrefsAnalytics.sendEvent('subpage_button_click');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
