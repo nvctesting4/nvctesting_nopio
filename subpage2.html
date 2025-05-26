@@ -6,18 +6,18 @@
   <title>Subpage 2</title>
 </head>
 <body>
-  <h1>Subpage</h1>
-  <button id="subBtn">Trigger Subpage Event</button>
+  <h1>Subpage 2</h1>
+  <button id="subBtn2">Trigger Subpage Event</button>
   <br><br>
   <a href="index.html">Back to Main Page</a>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const btn = document.getElementById('subBtn');
+      const btn = document.getElementById('subBtn2');
 
       btn.addEventListener('click', () => {
         if (window.AhrefsAnalytics) {
-          window.AhrefsAnalytics.sendEvent('subpage_button_click');
+          window.AhrefsAnalytics.sendEvent('subpage_button_click2');
         }
       });
     });
