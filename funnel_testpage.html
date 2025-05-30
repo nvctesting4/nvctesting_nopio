@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Funnel Test</title>
+  <script src="https://analytics-staging.ahrefs.dev/analytics.js" data-key="OE2G687HCESLAdBp7NXqaw" async></script>
+</head>
+<body>
+  <h1>Funnel Test</h1>
+  <button id="fnlBtn1">Funnel Test 1</button>
+  <br><br>
+  <button id="fnlBtn2">Funnel Test 2</button>
+  <br><br>
+  <a href="index.html">Back to Main Page</a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.getElementById('fnlBtn1');
+
+      btn.addEventListener('click', () => {
+        if (window.AhrefsAnalytics) {
+          window.AhrefsAnalytics.sendEvent('funnel_button1_click');
+        }
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.getElementById('fnlBtn2');
+
+      btn.addEventListener('click', () => {
+        if (window.AhrefsAnalytics) {
+          window.AhrefsAnalytics.sendEvent('funnel_button2_click');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
