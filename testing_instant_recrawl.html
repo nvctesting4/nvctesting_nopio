@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <h1>Instant Recrawl</h1>
+    <p>This a sign-up test for Web Analytics test.</p>
+
+   <!-- <a href="#" class="AhrefsAnalytics-event-signup" id="signup-btn">Sign Up</a>-->
+    <a class="AhrefsAnalytics-event-signup" href="#">Sign up</a>
+ 
+    <br><br>
+    <button type="button" id="submit-btn">Submit</button>
+
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            if (window.AhrefsAnalytics != null) {
+                window.AhrefsAnalytics.sendEvent('submitted');
+            }
+        });
+    </script>
+</body>
+</html>
