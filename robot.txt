@@ -1,0 +1,6 @@
+# robots.txt for https://nopio.online
+
+User-agent: *
+Disallow:
+
+Sitemap: https://nopio.online/sitemap.xml
