@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Funnel Test 3 long title and long descriptions load test please refresh</title>
+  <script src="https://analytics-staging.ahrefs.dev/analytics.js" data-key="OE2G687HCESLAdBp7NXqaw" async></script>
+</head>
+<body>
+  <h1>Funnel Test 3</h1>
+  <button id="fnl2Btn1">Funnel Test 1</button>
+  <br><br>
+  <button id="fnl2Btn2">Funnel Test 2</button>
+  <br><br>
+  <a href="index.html">Back to Main Page</a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.getElementById('fnl2Btn1');
+
+      btn.addEventListener('click', () => {
+        if (window.AhrefsAnalytics) {
+          window.AhrefsAnalytics.sendEvent('funnel2_button1_click');
+        }
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.getElementById('fnl2Btn2');
+
+      btn.addEventListener('click', () => {
+        if (window.AhrefsAnalytics) {
+          window.AhrefsAnalytics.sendEvent('funnel2_button2_click');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
