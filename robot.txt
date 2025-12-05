@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://your-domain.com/sitemap.xml
-test123
+Sitemap: https://nopio.online/sitemap.xml
