@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /folder/
 
 Sitemap: https://nopio.online/sitemap.xml
