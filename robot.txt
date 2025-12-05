@@ -1,5 +1,1 @@
-User-agent: *
-Allow: /
-Disallow: /folder/
-
-Sitemap: https://nopio.online/sitemap.xml
+503_gwsg1
