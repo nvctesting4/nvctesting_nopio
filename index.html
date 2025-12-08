@@ -98,7 +98,7 @@
       font-weight: 600;
     }
 
-    /* Dropdown (More) */
+    /* Dropdown */
     .nav-dropdown {
       position: relative;
     }
@@ -228,22 +228,22 @@
         <a href="/contact.html">Contact</a>
 
         <!-- ===== Crawl Dropdown ===== -->
-  <div class="nav-dropdown" id="crawlDropdown">
-    <button type="button" onclick="toggleDropdown()">
-      Crawl ▾
-    </button>
-    <div class="nav-dropdown-menu">
-      <a href="/recrawl.html">Recrawl Home</a>
-      <a href="/aoa-instant-recrawl.html">AOA Instant Recrawl</a>
-      <a href="/crawl-status.html">Crawl Status</a>
-      <a href="/crawl-logs.html">Crawl Logs</a>
-      <a href="/submit-url.html">Submit URL</a>
-    </div>
-  </div>
+        <div class="nav-dropdown" id="crawlDropdown">
+          <button type="button" onclick="toggleCrawlDropdown()">
+            Crawl ▾
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="/recrawl.html">Recrawl Home</a>
+            <a href="/aoa-instant-recrawl.html">AOA Instant Recrawl</a>
+            <a href="/crawl-status.html">Crawl Status</a>
+            <a href="/crawl-logs.html">Crawl Logs</a>
+            <a href="/submit-url.html">Submit URL</a>
+          </div>
+        </div>
         
         <!-- Dropdown for extra/test pages -->
         <div class="nav-dropdown" id="moreDropdown">
-          <button type="button" onclick="toggleDropdown()">
+          <button type="button" onclick="toggleMoreDropdown()">
             More ▾
           </button>
           <div class="nav-dropdown-menu">
@@ -257,7 +257,7 @@
             <a href="/test2.html">Test2</a>
             <a href="funnel_testpage.html">Funnel Test</a>
             <a href="funnel2_testpage.html">Funnel 2 Test</a>
-            <a href="funnel3_testpage.html>Funnel 3 Test</a>
+            <a href="funnel3_testpage.html">Funnel 3 Test</a>
             <a href="/new-page-test.html">New Page Test</a>
             <a href="/aoa-instant-recrawl.html">AOA instant recrawl</a>
             <a href="/aoa.html">AOA</a>
@@ -284,16 +284,26 @@
       nav.classList.toggle('open');
     }
 
-    function toggleDropdown() {
-      const dd = document.getElementById('moreDropdown');
-      dd.classList.toggle('open');
+    function toggleCrawlDropdown() {
+      const crawl = document.getElementById('crawlDropdown');
+      crawl.classList.toggle('open');
     }
 
-    // Close dropdown when clicking outside (desktop)
+    function toggleMoreDropdown() {
+      const more = document.getElementById('moreDropdown');
+      more.classList.toggle('open');
+    }
+
+    // Close dropdowns when clicking outside (desktop)
     document.addEventListener('click', function (e) {
-      const dd = document.getElementById('moreDropdown');
-      if (!dd.contains(e.target)) {
-        dd.classList.remove('open');
+      const crawl = document.getElementById('crawlDropdown');
+      const more = document.getElementById('moreDropdown');
+
+      if (crawl && !crawl.contains(e.target)) {
+        crawl.classList.remove('open');
+      }
+      if (more && !more.contains(e.target)) {
+        more.classList.remove('open');
       }
     });
   </script>
