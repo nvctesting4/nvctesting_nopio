@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>External Link Page</title>
+    <meta charset="UTF-8">
+    <title>External Link 404 Test Cases</title>
 </head>
 <body>
-    <h1>Go to nvctesting.site</h1>
+    <h1>External Links – 404 Test Cases</h1>
 
+    <h2>1. Correct External Link (Should Work)</h2>
     <p>
-        <a href="https://nvctesting.sitee" target="_blank" rel="noopener noreferrer">
-            Click here to visit nvctesting.site
+        <a href="https://nvctesting.site" target="_blank" rel="noopener noreferrer">
+            Working Link – nvctesting.site
         </a>
     </p>
+
+    <hr>
+
+    <h2>2. Typo in URL (Will 404)</h2>
+    <p>
+        <a href="https://nvctesting.sitee" target="_blank" rel="noopener noreferrer">
+            Broken Link – Typo (.sitee)
+        </a>
+    </p>
+
+    <h2>3. Missing https:// (Will 404 – becomes relative URL)</h2>
+    <p>
+        <a href="nvctesting.site" target="_blank" rel="noopener noreferrer">
+            Broken Link – Missing https://
+        </a>
+        <br>
+        <!-- Will open as yourdomain.com/nvctesting.site (404) -->
+    </p>
+
+    <h2>4. Using Relative URL (Will 404)</h2>
+    <p>
+        <a href="/nvctesting.site" target="_blank" rel="noopener noreferrer">
+            Broken Link – Relative Path
+        </a>
+        <br>
+        <!-- Will open yourdomain.com/nvctesting.site (404) -->
+    </p>
+
 </body>
 </html>
