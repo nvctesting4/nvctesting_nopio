@@ -1,4 +1,30 @@
-User-agent: AhrefsBot
-Allow: /
+User-agent: Googlebot
+Disallow: /google/1/
+Disallow: /google/2/
+Disallow: /google/3/googlebot
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /baidu/1/
+Disallow: /baidu/2/
+Disallow: /baidu/3/baiduspider
+
+User-agent: Slurp
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /yandex/1/
+Disallow: /yandex/2/
+Disallow: /yandex/3/yandexbot
+
+
+
+# User-agent: AhrefsBot 
+# User-agent: Googlebot
+# User-agent: Bingbot
+# User-agent: Yandex
+# Disallow: /
 
 Sitemap: https://nopio.online/sitemap.xml
