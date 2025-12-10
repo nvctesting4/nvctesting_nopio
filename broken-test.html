@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Broken Link Test – nopio.online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+  <h1>Broken Link Test Page</h1>
+  <p>This page contains one broken link for crawler testing.</p>
+
+  <ul>
+    <li>
+      <!-- This URL intentionally does NOT exist -->
+      <a href="https://www.example.com/this-page-does-not-exist-404" target="_blank">
+        Broken Link → Should return 404
+      </a>
+    </li>
+
+    <li>
+      <!-- Working link -->
+      <a href="https://www.example.com/" target="_blank">
+        Working Link
+      </a>
+    </li>
+  </ul>
+
+  <p><a href="/">Back to Home</a></p>
+</body>
+</html>
