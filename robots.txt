@@ -21,7 +21,7 @@ Disallow: /yandex/3/yandexbot
 
 
 
-# User-agent: AhrefsBot 
+User-agent: AhrefsBot 
 # User-agent: Googlebot
 # User-agent: Bingbot
 # User-agent: Yandex
