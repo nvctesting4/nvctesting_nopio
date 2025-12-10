@@ -1,0 +1,28 @@
+<html>
+
+<head>
+  <title>Test 'Redirects'</title>
+</head>
+
+<body>
+  <hr>
+  <h2>Test redirects</h2>
+  <ul>
+    <li><a href="r_page_a1.php">open redirect A</a> &nbsp; r_page_a1(301) -&gt; r_page_a2 (not a redirect chain)</li>
+    <li><a href="r_page_a3.php">open redirect A3</a> &nbsp; r_page_a3(302) -&gt; r_page_a2 (a redirect chain)</li>
+    <li><a href="r_page_a7.php">open redirect A4</a> &nbsp; r_page_a7(301) -&gt; r_page_a2 (not a redirect chain)</li>
+    <li><a href="r_page_b1.php">open redirect chain B</a> &nbsp; r_page_b1(301) -&gt; r_page_b2(301) -&gt; r_page_b3</li>
+    <li><a href="r_page_c1.php">open redirect chain C</a> &nbsp; r_page_c1(302) -&gt; r_page_c2(301) -&gt; r_page_c3(302) -&gt; r_page_c4(301) -&gt; r_page_c5(301) -&gt; r_page_c6</a></li>
+    <li><a href="r_page_d1.php">open redirect chain D</a> &nbsp; r_page_d1(301) -&gt; r_page_d2(302) -&gt; r_page_d3(302) -&gt; r_page_d4</a></li>
+    <li><a href="r_page_h1.php">open redirect chain H</a> &nbsp; r_page_h1(301) -&gt; r_page_h2(302) -&gt; r_page_h3(303) -&gt; r_page_h4(307) -&gt; r_page_h5(308) -&gt; r_page_h6</li>
+    <li><a href="r_page_l1.php">open redirect chain L</a> &nbsp; r_page_l1(301) -&gt; r_page_l2(301) -&gt; r_page_h1</li>
+    <br>
+    <li><a href="r_page_e1.php">redirect loop 301</a>r_page_e1 (301)</li>
+    <li><a href="r_page_f1.php">redirect loop 302</a>r_page_f1 (302)</li>
+    <li><a href="rLoop_page_g1.php">redirect loop with 3 pages</a> &nbsp; rLoop_page_g1 (301) -&gt; rLoop_page_g2(301) -&gt; rLoop_page_g3(301) -&gt; rLoop_page_g1(301)</li>
+    <li><a href="rLoop_page_m1.php">redirect loop with 2 pages</a> &nbsp; rLoop_page_m1 (301) -&gt; rLoop_page_m2(301) -&gt; rLoop_page_m1(301))</li>
+    <br>
+    <li><a href="r_page_i1.php">restricted external page via redirect chain I</a> &nbsp; r_page_i1(301) -&gt; r_page_i2(301) -&gt; <a href="https://ahrefs.com/blog/seo-metrics/">external ahrefs blog link</a>(restricted IP)</li>
+    <li><a href="r_page_j1.php">open redirect chain J</a> &nbsp; r_page_j1(301) -&gt; r_page_j2(301) -&gt; r_page_j3(404)</li>
+    <li><a href="r_page_k1.php">external page via redirect chain K</a> &nbsp; r_page_k1(301) -&gt; r_page_k2(301) -&gt; <a href="https://moz.com/blog">external link</a></li>
+  </ul>
