@@ -1,1 +1,4 @@
-503_gwsg1
+User-agent: *
+Allow: /
+
+Sitemap: https://nopio.online/sitemap.xml
