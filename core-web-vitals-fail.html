@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Core Web Vitals Stress Test - nopio.online</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+
+  <style>
+    /* Intentionally bad UX & layout for Core Web Vitals testing */
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #fff7e0;
+      color: #1f2933;
+    }
+
+    .page-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .placeholder {
+      height: 40px;
+      margin-bottom: 12px;
+      background: #f0d697;
+      border-radius: 6px;
+      opacity: 0.8;
+    }
+
+    .big-text-block {
+      margin-top: 48px;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* Large image area with no fixed height -> can trigger CLS */
+    .hero-wrapper {
+      margin-top: 24px;
+    }
+
+    .hero-image {
+      width: 100%;
+      display: block;
+      /* no height attribute -> layout shift when it loads */
+    }
+
+    /* Late injected banner that pushes content down (CLS) */
+    .late-banner {
+      background: #f97373;
+      color: #1f2933;
+      padding: 16px;
+      text-align: center;
+      font-weight: 600;
+      border-bottom: 4px solid #b91c1c;
+    }
+
+    /* Big slow button to simulate bad INP (slow interaction) */
+    .slow-button {
+      margin-top: 32px;
+      padding: 14px 22px;
+      font-size: 1rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: #111827;
+      color: #f9fafb;
+    }
+
+    .slow-output {
+      margin-top: 16px;
+      font-weight: 600;
+      color: #b91c1c;
+    }
+
+    .info-box {
+      margin-top: 32px;
+      padding: 16px;
+      border-radius: 12px;
+      background: #fff1c2;
+      border: 1px dashed #f59e0b;
+    }
+  </style>
+
+  <!-- Blocking script in <head> to hurt LCP / loading -->
+  <script>
+    // Simulate heavy JS parsing right in the head (NOT recommended in real sites)
+    const start = performance.now();
+    while (performance.now() - start < 1200) {
+      // busy loop ~1.2s
+      Math.sqrt(Math.random());
+    }
+  </script>
+</head>
+<body>
+  <div id="late-banner-slot"></div>
+
+  <main class="page-container">
+    <h1>Test Page: Intentionally Bad Core Web Vitals</h1>
+    <p>
+      This page is <strong>designed to perform poorly</strong> so that Core Web Vitals tools
+      (like Lighthouse or Search Console) can show warnings and “failed” reports.
+      <br />
+      Do <em>not</em> copy this pattern to real pages.
+    </p>
+
+    <!-- Fake skeleton placeholders that will get pushed down -->
+    <div class="placeholder"></div>
+    <div class="placeholder"></div>
+    <div class="placeholder"></div>
+
+    <section class="hero-wrapper">
+      <h2>Huge Image Loaded Late</h2>
+      <p>
+        The image below is large and we do not reserve height with CSS.
+        When it loads, the layout will jump (CLS).
+      </p>
+      <img
+        class="hero-image"
+        src="https://picsum.photos/1600/900?random=42"
+        alt="Random large test image (for Core Web Vitals)"
+      />
+    </section>
+
+    <section class="big-text-block">
+      <h2>Slow Interaction Button (Bad INP)</h2>
+      <p>
+        Click the button below. The JavaScript handler intentionally blocks the main thread
+        for a while to simulate a very slow response to user input.
+      </p>
+      <button class="slow-button" id="slowBtn">
+        Click me (will freeze for a moment)
+      </button>
+      <div class="slow-output" id="slowOutput"></div>
+    </section>
+
+    <section class="info-box">
+      <h2>Why this page exists</h2>
+      <ul>
+        <li>To trigger <strong>LCP</strong> issues via a big, late-loading image.</li>
+        <li>To trigger <strong>CLS</strong> with an injected banner and images without reserved space.</li>
+        <li>To trigger <strong>INP</strong> problems with a slow click handler.</li>
+      </ul>
+      <p>
+        This is a diagnostic page for <code>nopio.online</code>. It’s safe to crawl,
+        but not meant for normal visitors.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    // Inject a banner AFTER load to cause layout shift (CLS)
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        const slot = document.getElementById("late-banner-slot");
+        const banner = document.createElement("div");
+        banner.className = "late-banner";
+        banner.textContent =
+          "Late banner injected after load – this will push content down (CLS test).";
+        slot.appendChild(banner);
+      }, 2500); // 2.5s after load -> visible CLS
+    });
+
+    // Slow click handler to simulate bad INP
+    document.getElementById("slowBtn").addEventListener("click", function () {
+      const out = document.getElementById("slowOutput");
+      out.textContent = "Processing… (UI frozen on purpose)";
+      const start = performance.now();
+      while (performance.now() - start < 1800) {
+        // ~1.8 seconds of blocking main thread
+        Math.atan(Math.random());
+      }
+      out.textContent = "Done. This click was intentionally very slow.";
+    });
+  </script>
+</body>
+</html>
