@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=/404">
+
+    <!-- Meta refresh redirect: this is what most SEO tools detect -->
+    <meta http-equiv="refresh" content="0; url=/target-page.html">
+
+    <!-- Optional: tell crawlers the real URL via canonical -->
+    <link rel="canonical" href="/target-page.html">
 </head>
 <body>
-    <p>If you are not redirected, <a href="/404">click here</a>.</p>
+    <p>If you are not redirected, <a href="/target-page.html">click here</a>.</p>
 </body>
 </html>
